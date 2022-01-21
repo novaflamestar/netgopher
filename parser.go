@@ -22,6 +22,8 @@ func parseArgs() (*argBundle, error) {
 	s.StringVar(&port, "p", "", "Port to listen on")
 
 	if len(os.Args) < 2 {
+		c.Usage()
+		s.Usage()
 		return nil, fmt.Errorf("invalid usage, must specify client or server")
 	}
 	switch os.Args[1] {
